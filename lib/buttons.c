@@ -14,14 +14,14 @@ static absolute_time_t last_b_time;
 void button_callback(uint gpio, uint32_t events) {
     if (gpio == BUTTON_A_PIN) {
 
-        // Debounce: ignora eventos com menos de 50ms do último
-        if (absolute_time_diff_us(last_a_time, get_absolute_time()) > 50000) {
+        // Debounce: ignora eventos com menos de 100ms do último
+        if (absolute_time_diff_us(last_a_time, get_absolute_time()) > 100000) {
             button_a_pressed = true;
             last_a_time = get_absolute_time();
         }
     } 
     else if (gpio == BUTTON_B_PIN) {
-        if (absolute_time_diff_us(last_b_time, get_absolute_time()) > 50000) {
+        if (absolute_time_diff_us(last_b_time, get_absolute_time()) > 100000) {
             button_b_pressed = true;
             last_b_time = get_absolute_time();
         }
