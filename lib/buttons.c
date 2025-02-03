@@ -14,7 +14,7 @@ static absolute_time_t last_b_time;
 void button_callback(uint gpio, uint32_t events) {
     if (gpio == BUTTON_A_PIN) {
 
-        // Debounce: ignora eventos com menos de 100ms do último
+        // Debounce: ignora eventos com menos de 500ms do último
         if (absolute_time_diff_us(last_a_time, get_absolute_time()) > 500000) {
             button_a_pressed = true;
             last_a_time = get_absolute_time();
